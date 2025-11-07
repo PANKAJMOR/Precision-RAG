@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precision-RAG</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <h1>Precision-RAG 🚀</h1>
+            <p>Hybrid Search & Re-ranking RAG System</p>
+        </header>
+
+        <div class="upload-section">
+            <h3>Upload a Document</h3>
+            <p>Upload a .pdf or .txt file. This will re-index the library.</p>
+            <form id="upload-form">
+                <input type="file" id="file-input" accept=".pdf,.txt" required>
+                <button type="submit" id="upload-button">Upload & Process</button>
+            </form>
+            <div id="upload-status" class="upload-status"></div>
+        </div>
+        
+        <div class="chat-window" id="chat-window">
+            <div class="chat-message bot">
+                <p>Hello! Please upload a document to begin (or ask about previously uploaded documents).</p>
+            </div>
+        </div>
+
+        <form class="chat-input-form" id="chat-form">
+            <input 
+                type="text" 
+                id="message-input" 
+                placeholder="Ask a question..." 
+                autocomplete="off" 
+                required
+            >
+            <button type="submit" id="send-button">Send</button>
+        </form>
+
+        <div class="settings-panel">
+            <h3>Settings</h3>
+            <label for="llm-select">Select LLM:</label>
+            <select id="llm-select">
+                <option value="groq" selected>Groq (Llama 3.1 8B)</option>
+                <option value="openai">OpenAI (GPT-4o Mini)</option>
+            </select>
+            <label for="api-key-input">API Key (if required):</label>
+            <input 
+                type="password" 
+                id="api-key-input" 
+                placeholder="Paste your API key here (e.g., for OpenAI)"
+            >
+        </div>
+    </div>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>

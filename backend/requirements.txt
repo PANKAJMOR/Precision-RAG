@@ -1,0 +1,48 @@
+ # ---------------------------------------------------------------------------
+# REQUIREMENTS.TXT for Precision-RAG
+#
+# This file lists all Python dependencies, organized by their function.
+# To install all, run: pip install -r requirements.txt
+# ---------------------------------------------------------------------------
+
+# --- Core Web Server & API ---
+# This is the "engine" for your backend.
+fastapi                       # The main web framework for our backend API
+uvicorn[standard]             # The high-performance server to run FastAPI
+python-multipart              # Required for FastAPI to handle file uploads
+
+# --- Core RAG & AI Logic ---
+# This is the "brain" of your RAG pipeline.
+langchain                     # The main framework for building the RAG pipeline
+langchain-core                # Core abstractions (LCEL, runnables)
+langchain-community           # Community-maintained integrations (loaders, vector stores)
+
+# --- LLM Provider Options (For your "multi-LLM" feature) ---
+langchain-openai              # For GPT-4o, GPT-3.5 (your "paid API key" option)
+langchain-groq                # For Llama3, Mixtral (very fast, good free tier)
+langchain-anthropic           # For Claude 3.5 Sonnet (another "paid API key" option)
+# langchain-ollama            # Uncomment this if you want to support local models via Ollama
+
+# --- Vector Database ---
+# This is the "memory" for your semantic retrieval.
+chromadb                      # The persistent, API-first vector database
+
+# --- "Precision" Part 1: Keyword Search ---
+# This is the "BM25" part of your synopsis.
+rank_bm25                     # The library for BM25 (keyword) search
+
+# --- "Precision" Part 2: Re-Ranking & Embeddings ---
+# This is the "Cross-Encoder" part of your synopsis.
+sentence-transformers         # Provides embedding models (like all-mpnet-base-v2)
+                              # AND the Cross-Encoder model (for re-ranking)
+
+# --- Document Loaders (For your "variety of loaders" feature) ---
+# These are the libraries LangChain uses to read different file types.
+pypdf                         # For .pdf files
+python-docx                   # For .docx (Word) files
+beautifulsoup4                # For scraping HTML from web pages
+youtube-transcript-api        # For loading YouTube video transcripts
+unstructured[pdf,docx,md,pptx] # A powerful loader that can handle many types
+
+# --- Utilities ---
+python-dotenv                 # For loading API keys from a .env file (good practice)
